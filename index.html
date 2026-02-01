@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ghidul iepurașului meu / My Bunny Guide</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      background: #f7f5fb;
+      color: #333;
+      line-height: 1.55;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f6c1d6, #c6e6ff);
+      padding: 28px 16px 34px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 26px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    .lang-toggle {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-toggle button {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      background: #ffffffaa;
+      transition: 0.2s;
+    }
+
+    .lang-toggle button.active {
+      background: #fff;
+      font-weight: 600;
+      box-shadow: 0 0 0 1px #ffffff55;
+    }
+
+    main {
+      max-width: 900px;
+      margin: -20px auto 40px;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    h3 {
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .status-grid img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      max-height: 220px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 0;
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 15px;
+      margin: 6px 0 0;
+    }
+
+    .tagline {
+      font-style: italic;
+      font-size: 14px;
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f0f0ff;
+      font-size: 12px;
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .schedule-item {
+      background: #faf9ff;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    .highlight {
+      font-weight: 600;
+    }
+
+    .pdf-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .pdf-links a {
+      text-decoration: none;
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #333;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 20px 0 30px;
+      color: #777;
+    }
+
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* MOBILE OPTIMIZATION */
+    @media (max-width: 700px) {
+      header h1 { font-size: 22px; }
+      header p { font-size: 14px; }
+
+      .status-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      ul, p {
+        font-size: 14px;
+      }
+
+      .schedule-item {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 20px; }
+      .lang-toggle button { width: 100%; max-width: 200px; }
+
+      .pdf-links a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Ghidul iepurașului meu / My Bunny Guide</h1>
+  <p>Un mic wiki personal pentru iepurele meu – hrană, joacă, încredere.</p>
+
+  <div class="lang-toggle">
+    <button id="btn-ro" class="active" onclick="setLang('ro')">Română</button>
+    <button id="btn-en" onclick="setLang('en')">English</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ROMÂNĂ -->
+  <section id="sec-ro" class="section active">
+
+    <div class="card">
+      <h2>Despre iepurașul meu</h2>
+      <div class="status-grid">
+        <div>
+          <p><span class="highlight">Vârstă:</span> ~6 luni</p>
+          <p><span class="highlight">Sex:</span> mascul, nesterilizat</p>
+          <p><span class="highlight">Personalitate:</span> timid, curios, mai activ dimineața și seara.</p>
+          <p><span class="highlight">Comportament acum:</span> sare din playpen, se ascunde sub canapea, are nevoie de timp să prindă încredere.</p>
+          <div class="tagline">Construim încrederea în fiecare zi, în ritmul lui.</div>
+          <div>
+            <span class="pill">adolescent</span>
+            <span class="pill">sensibil la zgomote</span>
+            <span class="pill">iubește explorarea</span>
+          </div>
+        </div>
+        <img src="bunny1.jpg" alt="Iepurașul meu">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Program de mâncare</h2>
+      <p>Încerc să păstrez un program stabil, adaptat la orele în care este el cel mai activ.</p>
+
+      <div class="schedule">
+        <div class="schedule-item">
+          <h3>Dimineața (8:00–10:00)</h3>
+          <p>10 g peleti + salată</p>
+        </div>
+
+        <div class="schedule-item">
+          <h3>După-amiaza (12:00–14:00)</h3>
+          <p>10 g peleti</p>
+        </div>
+
+        <div class="schedule-item">
+          <h3>Seara (20:00–22:00)</h3>
+          <p>10 g peleti + puțină salată</p>
+        </div>
+
+        <div class="schedule-item">
+          <h3>Gustare (16:00–18:00)</h3>
+          <p>Puțin măr / banană / morcov<br><span class="note">Uneori, nu zilnic – din 2 în 2 zile.</span></p>
+        </div>
+      </div>
+
+      <p class="highlight" style="margin-top:8px;">Fân: OBLIGATORIU tot timpul • Apă fresh: OBLIGATORIE tot timpul</p>
+    </div>
+
+    <div class="card">
+      <h2>Joacă și activități zilnice</h2>
+      <ul>
+        <li><strong>Dimineața:</strong> 5–10 minute joacă liberă (dacă se poate).</li>
+        <li><strong>Seara:</strong> 10 minute explorare (dacă se poate).</li>
+        <li><strong>Jucării:</strong> tunel, cutii, role de hârtie, jucării de ros.</li>
+        <li><strong>Activități:</strong> căutare de pelete, ros, săpat, explorare.</li>
+        <li><strong>Socializare:</strong> stau jos lângă el, vorbesc încet, nu îl forțez să vină.</li>
+        <li><strong>Liniște:</strong> nu îl deranjez când se ascunde sau doarme.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Ghid PDF (Română)</h2>
+      <p>Am și o versiune PDF a ghidului, pe care o poți imprima sau trimite altcuiva.</p>
+      <div class="pdf-links">
+        <a href="bunny-ro.pdf" download>Descarcă ghidul în română (PDF)</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ENGLISH -->
+  <section id="sec-en" class="section">
+
+    <div class="card">
+      <h2>About my bunny</h2>
+      <div class="status-grid">
+        <div>
+          <p><span class="highlight">Age:</span> ~6 months</p>
+          <p><span class="highlight">Sex:</span> male, not neutered</p>
+          <p><span class="highlight">Personality:</span> shy, curious, more active in the morning and evening.</p>
+          <p><span class="highlight">Current behaviour:</span> jumps out of the playpen, hides under the couch, needs time to feel safe.</p>
+          <div class="tagline">We build trust every day, at his own pace.</div>
+          <div>
+            <span class="pill">adolescent</span>
+            <span class="pill">noise-sensitive</span>
+            <span class="pill">loves exploring</span>
+          </div>
+        </div>
+        <img src="bunny1.jpg" alt="My bunny">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Feeding schedule</h2>
+      <p>I try to keep a stable routine that matches his natural activity peaks.</p>
+
+      <div class="schedule">
+        <div class="schedule-item">
+          <h3>Morning (8:00–10:00)</h3>
+          <p>10 g pellets + lettuce</p>
+        </div>
+
+        <div class="schedule-item">
+          <h3>Afternoon (12:00–14:00)</h3>
+          <p>10 g pellets</p>
+        </div>
+
+        <div class="schedule-item">
+          <h3>Evening (20:00–22:00)</h3>
+          <p>10 g pellets + a little lettuce</p>
+        </div>
+
+        <div class="schedule-item">
+          <h3>Snack (16:00–18:00)</h3>
+          <p>A little apple / banana / carrot<br><span class="note">Sometimes, not daily – every 2 days.</span></p>
+        </div>
+      </div>
+
+      <p class="highlight" style="margin-top:8px;">Hay: AVAILABLE at all times • Fresh water: AVAILABLE at all times</p>
+    </div>
+
+    <div class="card">
+      <h2>Daily play and activities</h2>
+      <ul>
+        <li><strong>Morning:</strong> 5–10 minutes free play (if possible).</li>
+        <li><strong>Evening:</strong> 10 minutes exploration (if possible).</li>
+        <li><strong>Toys:</strong> tunnel, boxes, toilet paper rolls, chew toys.</li>
+        <li><strong>Activities:</strong> pellet searching, chewing, digging, exploring.</li>
+        <li><strong>Socializing:</strong> I sit next to him, speak softly, and don’t force contact.</li>
+        <li><strong>Quiet time:</strong> I don’t disturb him when he hides or sleeps.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>PDF guide (English)</h2>
+      <p>I also keep a PDF version of this guide that you can print or share.</p>
+      <div class="pdf-links">
+        <a href="bunny-en.pdf" download>Download guide in English (PDF)</a>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  Mic wiki personal pentru iepurașul meu. Actualizat pe măsură ce creștem împreună.
+</footer>
+
+<script>
+  function setLang(lang) {
+    const roSec = document.getElementById('sec-ro');
+    const enSec = document.getElementById('sec-en');
+    const btnRo = document.getElementById('btn-ro');
+    const btnEn = document.getElementById('btn-en');
+
+    if (lang === 'ro') {
+      roSec.classList.add('active');
+      enSec.classList.remove('active');
+      btnRo.classList.add('active');
+      btnEn.classList.remove('active');
+    } else {
+      enSec.classList.add('active');
+      roSec.classList.remove('active');
+      btnEn.classList.add('active');
+      btnRo.classList.remove('active');
+    }
+  }
+</script>
+
+</body>
+</html>
